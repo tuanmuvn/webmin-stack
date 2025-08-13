@@ -1,9 +1,9 @@
-FROM ubuntu:22.04
+FROM debian:bookworm
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
-    wget perl net-tools openssl libauthen-pam-perl libio-pty-perl apt-show-versions python unzip \
+    wget perl net-tools openssl libauthen-pam-perl libio-pty-perl apt-show-versions python3 unzip \
     && wget http://prdownloads.sourceforge.net/webadmin/webmin_2.021_all.deb \
     && dpkg --install webmin_2.021_all.deb || apt-get -f install -y \
     && rm webmin_2.021_all.deb \
